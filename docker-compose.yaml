@@ -62,7 +62,7 @@ services:
   worker:
     image: twentycrm/twenty:${TWENTY_VERSION:-latest}
     volumes:
-      - server-local-data:/app/packages/twenty-server/${STORAGE_LOCAL_PATH:-.local-storage}
+      - server-local-data:/app/packages/twenty-server/.local-storage
     command: ["yarn", "worker:prod"]
     environment:
       PG_DATABASE_URL: postgres://postgres:${SERVICE_PASSWORD_POSTGRES}@db:5432/default
