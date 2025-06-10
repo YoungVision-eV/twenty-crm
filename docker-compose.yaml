@@ -52,12 +52,6 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
-    healthcheck:
-      test: curl --fail http://localhost:3000/healthz || exit 1
-      interval: 5s
-      timeout: 5s
-      retries: 20
-    restart: always
 
   worker:
     image: twentycrm/twenty:${TWENTY_VERSION:-latest}
@@ -106,7 +100,6 @@ services:
         condition: service_healthy
       server:
         condition: service_healthy
-    restart: always
 
   db:
     image: postgres:16
