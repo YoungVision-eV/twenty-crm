@@ -47,6 +47,10 @@ services:
       # EMAIL_SMTP_USER: ${EMAIL_SMTP_USER}
       # EMAIL_SMTP_PASSWORD: ${EMAIL_SMTP_PASSWORD}
 
+    cpus: 0.5
+    cpu_percent: 50
+    cpu_count: 1
+    mem_limit: "1GB"
     depends_on:
       db:
         condition: service_healthy
@@ -97,8 +101,6 @@ services:
 
     depends_on:
       db:
-        condition: service_healthy
-      server:
         condition: service_healthy
 
   db:
