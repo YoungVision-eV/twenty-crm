@@ -10,10 +10,9 @@ services:
     volumes:
       - server-local-data:/app/packages/twenty-server/.local-storage
     environment:
-      SERVICE_FQDN_TWENTY_3000: ${SERVICE_FQDN_TWENTY_3000}
       NODE_PORT: 3000
       PG_DATABASE_URL: postgres://postgres:${SERVICE_PASSWORD_POSTGRES}@db:5432/default
-      SERVER_URL: ${SERVICE_FQDN_TWENTY}
+      SERVER_URL: ${COOLIFY_URL}
       REDIS_URL: redis://redis:6379
 
       STORAGE_TYPE: ${STORAGE_TYPE}
@@ -64,7 +63,7 @@ services:
     command: ["yarn", "worker:prod"]
     environment:
       PG_DATABASE_URL: postgres://postgres:${SERVICE_PASSWORD_POSTGRES}@db:5432/default
-      SERVER_URL: ${SERVICE_FQDN_TWENTY}
+      SERVER_URL: ${COOLIFY_URL}
       REDIS_URL: redis://redis:6379
       DISABLE_DB_MIGRATIONS: "true" # it already runs on the server
 
