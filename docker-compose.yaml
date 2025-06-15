@@ -15,6 +15,8 @@ services:
       SERVER_URL: ${COOLIFY_URL}
       REDIS_URL: redis://redis:6379
 
+      DISABLE_DB_MIGRATIONS: "true" # HACK: These cause massive performance issues
+
       STORAGE_TYPE: ${STORAGE_TYPE}
       STORAGE_S3_REGION: ${STORAGE_S3_REGION}
       STORAGE_S3_NAME: ${STORAGE_S3_NAME}
